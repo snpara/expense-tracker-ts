@@ -7,7 +7,7 @@ import "./ExpenseItem.css";
 
 export interface ExpenseData {
   title: string;
-  amount: string;
+  amount: number;
   date: Date;
   id: string;
 }

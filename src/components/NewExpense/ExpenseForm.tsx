@@ -33,7 +33,7 @@ const ExpenseForm: React.FC<ExpenseFormProps> = (props) => {
 
     const expenseData: ExpenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate),
       id: "",
     };
