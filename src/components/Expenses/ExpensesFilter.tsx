@@ -10,7 +10,6 @@ interface ExpenseFilterProps {
 
 const ExpensesFilter: React.FC<ExpenseFilterProps> = (props) => {
   const dropdownChangeHandler = (event: ChangeEvent<HTMLSelectElement>) => {
-    console.log(event.target.value);
     props.onChangeFilter(event.target.value);
   };
 

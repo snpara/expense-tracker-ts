@@ -4,40 +4,28 @@ import { ExpenseData } from "../Expenses/ExpenseItem";
 import "./ExpenseForm.css";
 
 type saveExpenseDataHandlerFunction = (arg0: ExpenseData) => void;
+type stopEditingHandlerFunction = () => void;
 
 interface ExpenseFormProps {
   onSaveExpenseData: saveExpenseDataHandlerFunction;
+  onCancel: stopEditingHandlerFunction;
 }
 
 const ExpenseForm: React.FC<ExpenseFormProps> = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
-  // const [userInput, setUserInput] = useState({
-  //   enteredTitle: "",
-  //   enteredAmount: "",
-  //   enteredDate: "",
-  // });
 
   const titleChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setEnteredTitle(event.target.value);
-    // setUserInput((prevState) => {
-    //   return { ...prevState, enteredTitle: event.target.value };
-    // });
   };
 
   const amountChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setEnteredAmount(event.target.value);
-    // setUserInput((prevState) => {
-    //   return { ...prevState, enteredAmount: event.target.value };
-    // });
   };
 
   const dateChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setEnteredDate(event.target.value);
-    // setUserInput((prevState) => {
-    //   return { ...prevState, enteredDate: event.target.value };
-    // });
   };
 
   const submitHandler = (event: ChangeEvent<HTMLFormElement>) => {
@@ -89,6 +77,9 @@ const ExpenseForm: React.FC<ExpenseFormProps> = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button type="button" onClick={props.onCancel}>
+          Cancel
+        </button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
